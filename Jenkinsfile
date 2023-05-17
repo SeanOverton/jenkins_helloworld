@@ -1,9 +1,19 @@
 pipeline {
-    agent { docker { image 'python:3.10.7-alpine' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
+        steps {
+            echo 'Hi, GeekFlare. Starting to build the App.'
+            }
+        }
+        stage('Test') {
+        steps {
+            input('Do you want to proceed?')
+            }
+        }
+        stage('Deploy') {
             steps {
-                sh 'python --version'
+            echo 'Deploying the App.'
             }
         }
     }
